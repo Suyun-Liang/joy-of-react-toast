@@ -5,8 +5,7 @@ import styles from "./ToastShelf.module.css";
 import { ToastContext } from "../ToastProvider/ToastProvider";
 
 function ToastShelf() {
-  const { messagesList: data, handleDeleteAll } =
-    React.useContext(ToastContext);
+  const { messagesList: data } = React.useContext(ToastContext);
 
   return (
     <ol

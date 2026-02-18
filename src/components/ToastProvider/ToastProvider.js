@@ -1,5 +1,5 @@
 import React, { createContext, useMemo } from "react";
-import { useEscapeKey } from "../../hooks/hooks";
+import { useKeyDown } from "../../hooks/hooks";
 
 export const ToastContext = createContext();
 
@@ -21,7 +21,7 @@ function ToastProvider({ children }) {
     setMessagesList([]);
   }, []);
 
-  useEscapeKey(handleDeleteAll);
+  useKeyDown("Escape", handleDeleteAll);
 
   const cachedVal = useMemo(() => {
     return {
