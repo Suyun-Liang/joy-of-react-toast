@@ -20,6 +20,10 @@ function ToastProvider({ children }) {
     setMessagesList((cur) => cur.filter(({ id }) => id !== deleteId));
   }, []);
 
+  const handleDeleteAll = React.useCallback(() => {
+    setMessagesList([]);
+  }, []);
+
   const cachedVal = useMemo(() => {
     return {
       messageInput,
@@ -29,8 +33,16 @@ function ToastProvider({ children }) {
       messagesList,
       handleAdd,
       handleDelete,
+      handleDeleteAll,
     };
-  }, [messageInput, variantVal, messagesList, handleAdd, handleDelete]);
+  }, [
+    messageInput,
+    variantVal,
+    messagesList,
+    handleAdd,
+    handleDelete,
+    handleDeleteAll,
+  ]);
 
   return <ToastContext value={cachedVal}>{children}</ToastContext>;
 }
