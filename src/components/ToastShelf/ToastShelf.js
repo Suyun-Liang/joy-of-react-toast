@@ -3,13 +3,10 @@ import React from "react";
 import Toast from "../Toast";
 import styles from "./ToastShelf.module.css";
 import { ToastContext } from "../ToastProvider/ToastProvider";
-import { useEscapeKey } from "../../hooks/hooks";
 
 function ToastShelf() {
   const { messagesList: data, handleDeleteAll } =
     React.useContext(ToastContext);
-
-  useEscapeKey(handleDeleteAll);
 
   return (
     <ol
