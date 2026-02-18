@@ -9,14 +9,9 @@ import { ToastContext } from "../ToastProvider/ToastProvider";
 const VARIANT_OPTIONS = ["notice", "warning", "success", "error"];
 
 function ToastPlayground() {
-  const {
-    messagesList,
-    handleAdd,
-    messageInput,
-    setMessageInput,
-    variantVal,
-    setVariantVal,
-  } = React.useContext(ToastContext);
+  const [variantVal, setVariantVal] = React.useState("notice");
+  const [messageInput, setMessageInput] = React.useState("");
+  const { messagesList, handleAdd } = React.useContext(ToastContext);
 
   return (
     <div className={styles.wrapper}>
@@ -30,7 +25,7 @@ function ToastPlayground() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          handleAdd();
+          handleAdd(messageInput, variantVal);
         }}
       >
         <div className={styles.controlsWrapper}>
